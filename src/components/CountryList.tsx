@@ -5,7 +5,12 @@ import { fetchCountries } from '../api/countries';
 import CountryCard from './CountryCard';
 import { Country } from '@/types/country';
 
-const CountryList = () => {
+type CountryListProps = {
+  start?: number;
+  end?: number;
+};
+
+const CountryList = ({ start, end }: CountryListProps = {}) => {
   const { data, error, isLoading } = useQuery({
     queryKey: ['countries'],
     queryFn: fetchCountries,
@@ -19,6 +24,8 @@ const CountryList = () => {
       {data.map((country: Country) => (
         <CountryCard key={country.cca3} country={country} />
       ))}
+      {start}
+      {end}
     </div>
   );
 };

@@ -23,6 +23,8 @@ export default function CountryCard({ country }: { country: Country }) {
       <CardContent className="flex flex-col items-center">
         <Image
           src={country.flags.png}
+          width={320} // Specify width
+          height={200}
           alt={country.flags.alt || `Flag of ${country.name.common}`}
           className="w-32 h-auto rounded-md mb-4 shadow"
         />
